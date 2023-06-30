@@ -7,10 +7,14 @@ metadata:
 spec:
   selector:
     epc-mode: nrf
+  clusterIP: 10.100.1.10
   ports:
     - protocol: TCP
       port: 80
       targetPort: 80
+    - protocol: TCP
+      port: 7777
+      targetPort: 7777
 ---    
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
@@ -29,7 +33,7 @@ spec:
 #        "helm.sh/hook": pre-install    
       labels:
         epc-mode: nrf
-    spec:  
+    spec:
       containers:
         - name: nrf
           image: "{{ .Values.open5gs.image.repository }}:{{ .Values.open5gs.image.tag }}"
@@ -38,7 +42,9 @@ spec:
           volumeMounts:
             - name: {{ .Release.Name }}-nrf-config
               mountPath: /open5gs/config-map/nrf.yaml
-              subPath: "nrf.yaml"   
+              subPath: "nrf.yaml"
+          ports:
+          - containerPort: 7777
       volumes:
         - name: {{ .Release.Name }}-nrf-config
           configMap:

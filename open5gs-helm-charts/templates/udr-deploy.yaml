@@ -7,10 +7,14 @@ metadata:
 spec:
   selector:
     epc-mode: udr
+  clusterIP: 10.100.1.20
   ports:
     - protocol: TCP
       port: 80   
       targetPort: 80
+    - protocol: TCP
+      port: 7777
+      targetPort: 7777
 ---  
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
@@ -51,6 +55,8 @@ spec:
           - name: {{ .Release.Name }}-udr-config
             mountPath: /open5gs/config-map/udr.yaml
             subPath: "udr.yaml"    
+          ports:
+          - containerPort: 7777
       volumes:
         - name: {{ .Release.Name }}-udr-config
           configMap:
