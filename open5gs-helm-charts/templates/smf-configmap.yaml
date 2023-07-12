@@ -17,11 +17,11 @@ data:
         - addr: 0.0.0.0
           advertise: {{ .Release.Name }}-smf
         pfcp:
-           - addr: {{ .Values.upf.smfServiceIP }}
+           dev: {{ .Values.smf.N4Int }}
         gtpc:
-           - addr: {{ .Values.upf.smfServiceIP }}
+           dev: {{ .Values.smf.N4Int }}
         gtpu:
-           - addr: {{ .Values.upf.smfServiceIP }}
+           dev: {{ .Values.smf.N4Int }}
         subnet:
          - addr: 10.45.0.1/16
            dnn: {{ .Values.dnn }}
