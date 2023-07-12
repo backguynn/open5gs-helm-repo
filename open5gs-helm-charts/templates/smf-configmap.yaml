@@ -36,5 +36,5 @@ data:
 
     upf:
       pfcp:
-        - addr: {{ .Values.upf.multusN3N4IP }}
+        - addr: {{ .Values.upf.upfServiceIP }}
           dnn: {{ .Values.dnn }}

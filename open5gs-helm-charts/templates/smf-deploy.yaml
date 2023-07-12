@@ -9,6 +9,43 @@ spec:
     epc-mode: smf
   ports:
     - protocol: TCP
+      name: smf-2123-tcp
+      port: 2123
+      targetPort: 2123
+    - protocol: UDP
+      name: smf-2123-udp
+      port: 2123
+      targetPort: 2123
+    - protocol: TCP
+      name: smf-8805-tcp
+      port: 8805
+      targetPort: 8805
+    - protocol: UDP
+      name: smf-8805-udp
+      port: 8805
+      targetPort: 8805
+    - protocol: TCP
+      name: smf-3868-tcp
+      port: 3868 
+      targetPort: 3868 
+    - protocol: UDP
+      name: smf-3868-udp
+      port: 3868 
+      targetPort: 3868 
+    - protocol: TCP
+      name: smf-7777-tcp
+      port: 7777
+      targetPort: 7777
+    - protocol: UDP
+      name: smf-2152-udp
+      port: 2152
+      targetPort: 2152
+    - protocol: TCP
+      name: smf-9090-tcp
+      port: 9090
+      targetPort: 9090
+    - protocol: TCP
+      name: smf-80-tcp
       port: 80 
       targetPort: 80  
 ---  
@@ -25,11 +62,11 @@ spec:
       epc-mode: smf
   template:
     metadata:
-      annotations:
-         k8s.v1.cni.cncf.io/networks: '[
-                 { "name": "core5g-def",
-                   "ips": [ {{- cat .Values.smf.multusN4IP "/" .Values.smf.multusN4NetworkMask | nospace | quote }} ] }
-         ]'      
+      # annotations:
+      #    k8s.v1.cni.cncf.io/networks: '[
+      #            { "name": "core5g-def",
+      #              "ips": [ {{- cat .Values.smf.multusN4IP "/" .Values.smf.multusN4NetworkMask | nospace | quote }} ] }
+      #    ]'      
       labels:
         epc-mode: smf
         epc-prom: enabled

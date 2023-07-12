@@ -53,29 +53,31 @@ amf1:
   mnc: 93
   tac: 7
   networkName: Open5GS
-  ngapInt: net1
-  multusN2IP: 10.0.3.3
-  multusN2NetworkMask: 24
+  ngapInt: eth0
+  #multusN2IP: 10.0.3.3
+  #multusN2NetworkMask: 24
 
 amf2:
   mcc: 208
   mnc: 93
   tac: 7
   networkName: Open5GS
-  ngapInt: net1
-  multusN2IP: 10.0.3.4
-  multusN2NetworkMask: 24
+  ngapInt: eth0
+  #multusN2IP: 10.0.3.4
+  #multusN2NetworkMask: 24
 
 smf:
-  N4Int: net1
-  multusN4IP: 10.0.3.5
-  multusN4NetworkMask: 24
+  N4Int: eth0
+  smfServiceIP: 10.100.1.4
+  #multusN4IP: 10.0.3.5
+  #multusN4NetworkMask: 24
 
 upf:
-  N3N4Int: net1
-  multusN3N4IP: 10.0.3.6
-  multusN3N4NetworkMask: 24
-  multusN3N4GW: 10.0.3.1
+  N3N4Int: eth0
+  upfServiceIP: 10.100.1.7
+  #multusN3N4IP: 10.0.3.6
+  #multusN3N4NetworkMask: 24
+  #multusN3N4GW: 10.0.3.1
 
 nssf:
   sst: "1"

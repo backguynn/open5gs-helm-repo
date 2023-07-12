@@ -5,10 +5,18 @@ metadata:
   labels:
     epc-mode: upf
 spec:
+  clusterIP: {{ .Values.upf.upfServiceIP }}
+  type: LoadBalancer
+  loadBalancerClass: loxilb.io/loxilb
   selector:
     epc-mode: upf
   ports:
     - protocol: UDP
+      name: upf-2152-udp
+      port: 2152
+      targetPort: 2152
+    - protocol: UDP
+      name: upf-8805-udp
       port: 8805
       targetPort: 8805    
 ---  
@@ -25,11 +33,11 @@ spec:
       epc-mode: upf
   template:
     metadata:
-      annotations:
-         k8s.v1.cni.cncf.io/networks: '[
-                 { "name": "core5g-def",
-                   "ips": [ {{- cat .Values.upf.multusN3N4IP "/" .Values.upf.multusN3N4NetworkMask | nospace | quote }} ] }
-         ]'  
+      #annotations:
+         #k8s.v1.cni.cncf.io/networks: '[
+         #        { "name": "core5g-def",
+         #          "ips": [ {{- cat .Values.upf.multusN3N4IP "/" .Values.upf.multusN3N4NetworkMask | nospace | quote }} ] }
+         #]'  
       labels:
         epc-mode: upf
         epc-prom: enabled

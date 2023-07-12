@@ -10,9 +10,11 @@ spec:
   clusterIP: 10.100.1.20
   ports:
     - protocol: TCP
+      name: udr-80-tcp
       port: 80   
       targetPort: 80
     - protocol: TCP
+      name: udr-7777-tcp
       port: 7777
       targetPort: 7777
 ---  
