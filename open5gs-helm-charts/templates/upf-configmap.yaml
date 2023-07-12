@@ -11,9 +11,9 @@ data:
 
     upf:
         pfcp:
-           dev: {{ .Values.upf.N3N4Int }}
+           - addr: {{ .Values.upf.upfServiceIP }}
         gtpu:
-           dev: {{ .Values.upf.N3N4Int }}
+           - addr: {{ .Values.upf.upfServiceIP }}
         subnet:
           - addr: 10.45.0.1/16
             dnn: {{ .Values.dnn }}
