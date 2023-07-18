@@ -8,36 +8,28 @@ spec:
   selector:
     epc-mode: smf
   ports:
-    - protocol: TCP
-      name: smf-2123-tcp
+    - protocol: UDP
+      name: smf-gtpc
       port: 2123
       targetPort: 2123
     - protocol: UDP
-      name: smf-2123-udp
-      port: 2123
-      targetPort: 2123
-    - protocol: TCP
-      name: smf-8805-tcp
-      port: 8805
-      targetPort: 8805
-    - protocol: UDP
-      name: smf-8805-udp
+      name: smf-pfcp
       port: 8805
       targetPort: 8805
     - protocol: TCP
-      name: smf-3868-tcp
+      name: smf-frdi-tcp
       port: 3868 
       targetPort: 3868 
-    - protocol: UDP
-      name: smf-3868-udp
+    - protocol: SCTP
+      name: smf-frdi-sctp
       port: 3868 
       targetPort: 3868 
     - protocol: TCP
-      name: smf-7777-tcp
+      name: smf-sbi
       port: 7777
       targetPort: 7777
     - protocol: UDP
-      name: smf-2152-udp
+      name: smf-gtpu
       port: 2152
       targetPort: 2152
     - protocol: TCP
@@ -78,13 +70,7 @@ spec:
         imagePullPolicy: {{ .Values.k8swait.pullPolicy }}
         args:
           - "pod"
-          - "-lepc-mode=nrf"
-      - name: wait-for-upf
-        image: "{{ .Values.k8swait.repository }}:{{ .Values.k8swait.tag }}"
-        imagePullPolicy: {{ .Values.k8swait.pullPolicy }}
-        args:
-          - "pod"
-          - "-lepc-mode=upf"                      
+          - "-lepc-mode=nrf"            
       containers:
       - name: smf
         image: "{{ .Values.open5gs.image.repository }}:{{ .Values.open5gs.image.tag }}"

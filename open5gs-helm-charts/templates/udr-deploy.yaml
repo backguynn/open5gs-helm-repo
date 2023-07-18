@@ -14,7 +14,7 @@ spec:
       port: 80   
       targetPort: 80
     - protocol: TCP
-      name: udr-7777-tcp
+      name: udr-sbi
       port: 7777
       targetPort: 7777
 ---  

@@ -48,36 +48,17 @@ k8swait:
 k8s:
   interface: eth0
 
-amf1:
+amf:
   mcc: 208
   mnc: 93
   tac: 7
   networkName: Open5GS
   ngapInt: eth0
-  #multusN2IP: 10.0.3.3
-  #multusN2NetworkMask: 24
-
-amf2:
-  mcc: 208
-  mnc: 93
-  tac: 7
-  networkName: Open5GS
-  ngapInt: eth0
-  #multusN2IP: 10.0.3.4
-  #multusN2NetworkMask: 24
 
 smf:
   N4Int: eth0
   smfServiceIP: 10.100.1.4
-  #multusN4IP: 10.0.3.5
-  #multusN4NetworkMask: 24
-
-upf:
-  N3N4Int: eth0
-  upfServiceIP: 10.100.1.7
-  #multusN3N4IP: 10.0.3.6
-  #multusN3N4NetworkMask: 24
-  #multusN3N4GW: 10.0.3.1
+  upfPublicIP: 3.38.143.30
 
 nssf:
   sst: "1"
