@@ -57,7 +57,6 @@ amf:
 
 smf:
   N4Int: eth0
-  smfServiceIP: 10.100.1.4
   upfPublicIP: 3.38.143.30
 
 nssf:
