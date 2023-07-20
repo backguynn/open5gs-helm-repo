@@ -7,7 +7,6 @@ metadata:
 spec:
   selector:
     epc-mode: udr
-  clusterIP: 10.100.1.20
   ports:
     - protocol: TCP
       name: udr-80-tcp
