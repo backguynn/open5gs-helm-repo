@@ -7,7 +7,6 @@ metadata:
 spec:
   selector:
     epc-mode: nrf
-  clusterIP: 10.100.1.10
   ports:
     - protocol: TCP
       name: nrf-80-tcp
