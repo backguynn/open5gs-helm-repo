@@ -5,6 +5,7 @@ metadata:
   labels:
     epc-mode: nrf
 spec:
+  clusterIP: {{ .Values.nrf.clusterIP }}
   selector:
     epc-mode: nrf
   ports:

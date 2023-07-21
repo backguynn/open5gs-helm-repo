@@ -32,7 +32,7 @@ data:
 
     nrf:
      sbi:
-      name: {{ .Release.Name }}-nrf 
+      name: {{ .Release.Name }}-nrf
 
     upf:
       pfcp:

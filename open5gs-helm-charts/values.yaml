@@ -57,7 +57,7 @@ amf:
 
 smf:
   N4Int: eth0
-  upfPublicIP: 3.38.143.30
+  upfPublicIP: 43.202.32.199
 
 nssf:
   sst: "1"
