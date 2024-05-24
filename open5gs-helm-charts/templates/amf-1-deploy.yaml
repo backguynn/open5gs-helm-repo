@@ -10,7 +10,6 @@ metadata:
 spec:
   type: LoadBalancer
   loadBalancerClass: loxilb.io/loxilb
-  externalTrafficPolicy: Local
   selector:
     epc-mode: amf
   ports:
