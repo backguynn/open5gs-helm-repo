@@ -4,7 +4,9 @@ kind: Service
 metadata:
   name: {{ .Release.Name }}-amf
   annotations:
-    loxilb.io/probetype : "ping"
+    loxilb.io/probetype : "none"
+    loxilb.io/lbmode : "fullproxy"
+    loxilb.io/epselect: "n2"
   labels:
     epc-mode: amf
 spec:
